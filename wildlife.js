@@ -1,40 +1,62 @@
 /* Task 1: Track Animal Sightings */
-function animalSanctuary(...animal){
-	console.log(`Animal signtings: ${animal}`);
+function animalSanctuary(...animal) {
+  console.log(`Animal signtings: ${animal}`);
 }
+
 /* Task 2: Merge Habitat Areas */
 const forestHabitats = ["Forest A", "Forest B"];
 const savannahHabitats = ["Savannah C", "Savannah D"];
-const habitat = {...forestHabitats, savannahHabitats};
-console.log(habitat);
+const habitat = [...forestHabitats, savannahHabitats];
+console.log(`Combined habitats: ${habitat}`);
+
 /* Task 3: Update Conservation Status */
 const rhinoStatus = {
-	population: 500,
-	status: "Endangered"
+  population: 500,
+  status: "Endangered",
 };
-// TODO: You are given an object representing an animal's conservation status. Use the spread operator to update this status with new information, such as an increase in population or a change in habitat.
+
+const rhinoNewStatus = {
+  ...rhinoStatus,
+  population: 600,
+  newHabitat: "forest C",
+};
+console.log("Updated Rhino Status：", rhinoNewStatus);
 
 /* Task 4: Catalog Genetic Diversity */
 const lionProfile = {
-	name: "Leo",
-	age: 5,
-	species: "Lion"
+  name: "Leo",
+  age: 5,
+  species: "Lion",
 };
-// TODO: Duplicate an animal profile object using a shallow copy. Add genetic diversity information using the `genetics` property to this copy. Observe and explain how changes to nested properties affect both the original and the copied object.
+const lionGenetic = { ...lionProfile, genetic: "good" };
+console.log("Origin Lion Profile: ", lionProfile);
+console.log("New Lion Profile: ", lionGenetic);
+
 /*
  * Observations:
- * TODO: Explain here.
+ * TODO: Explain here: New object(shallow copy) does not changed the original one，
+ * for the edited property is the
  */
 
 /* Task 5: Analyze Ecosystem Health */
 const ecosystemHealth = {
-	waterQuality: "Good",
-	foodSupply: {
-		herbivores: "Abundant",
-		carnivores: "Sufficient"
-	}
+  waterQuality: "Good",
+  foodSupply: {
+    herbivores: "Abundant",
+    carnivores: "Sufficient",
+  },
 };
-// TODO: You are given an object with a nested structure detailing the ecosystem's health, including water quality and food supply. Perform a shallow copy and modify a nested property. Observe and explain how changes to nested properties affect both the original and the copied object.
+
+const newEcosystemHealth = {
+  ...ecosystemHealth,
+  foodSupply: {
+    ...ecosystemHealth.foodSupply,
+    herbivores: "Sufficient",
+    carnivores: "not enought",
+  },
+};
+console.log("Original Ecosystem Health: ", ecosystemHealth);
+console.log("New Ecosystem Health: ", newEcosystemHealth);
 /*
  * Observations:
  * TODO: Explain here.
