@@ -59,5 +59,5 @@ console.log("Original Ecosystem Health: ", ecosystemHealth);
 console.log("New Ecosystem Health: ", newEcosystemHealth);
 /*
  * Observations:
- * TODO: Explain here.
+ * TODO: shallow copy can affects original object. If we want keep the original copy, need to do deep copy
  */
