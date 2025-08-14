@@ -1,72 +1,81 @@
 /* Task 1: Unveiling the Coordinates */
-const coordinates = {x: 34, y: 42, z: 67};
-const {x,y} = coordinates;
+const coordinates = { x: 34, y: 42, z: 67 };
+const { x, y } = coordinates;
 console.log(`coordinates found: x=${x}, y=${y}`);
 
 /* Task 2: The Map of Secrets */
 const locations = {
-	first: "Cave of Wonders",
-	second: "Lake of Mystery",
-	third: "Mount of Ages",
-	fourth: "Desert of Shadows"
+  first: "Cave of Wonders",
+  second: "Lake of Mystery",
+  third: "Mount of Ages",
+  fourth: "Desert of Shadows",
 };
-const {
-	first,
-	second,
-	...remaining
-}=locations;
+const { first, second, ...remaining } = locations;
 console.log(`Key locations: ${first}, ${second}`);
 
 /* Task 3: The Mysterious Door */
 const doorCode = {
-	upper: "Alpha",
-	lower: "Omega"
+  upper: "Alpha",
+  lower: "Omega",
 };
-const{
-	upper,
-	middle=remaining.third,
-	lower
-}=doorCode;
+const { upper, middle = remaining.third, lower } = doorCode;
 console.log(`Door code sequence: ${upper},${middle}, ${lower}`);
 
 /* Task 4: The Guardian's Riddle */
 const riddle = {
-	ancientWord: "Sphinx",
-	modernWord: "Cat"
+  ancientWord: "Sphinx",
+  modernWord: "Cat",
 };
-const{
-	ancientWord:translation
-}=riddle;
-console.log(`The guardian says: ${translation}`)
-
+const { ancientWord: translation } = riddle;
+console.log(`The guardian says: ${translation}`);
 
 /* Task 5: The Array of Elements */
 const elements = ["Fire", "Water", "Earth", "Air"];
-
-
+const [firstElement, secondElement] = elements;
+console.log(`Essential Elements: ${firstElement}, ${secondElement}`);
 
 /* Task 6: Skipping Stones */
 const stones = [1, 2, 3, 4, 5, 6];
-// TODO: Crossing the River of Reflections requires skipping certain stones. Use array destructuring to extract only the first and the sixth stones. Print the extracted stones.
+const [firstStone, , , , , sixethStone] = stones;
+console.log(`Extracted stones: ${firstStone}, ${sixethStone}`);
 
 /* Task 7: The Array of Shadows */
 const shadows = ["Darkness", "Silence", "Whisper", "Echo"];
-// TODO: The Cave of Shadows hides more than it reveals. Use array destructuring with the rest parameter to separate the visible shadow (which is the first) from the hidden ones. Print the visible shadow and the hidden shadows.
+const [visible, ...hiddenShadows] = shadows;
+console.log(
+  `Visible shadow: ${visible}, hidden shadows: ${hiddenShadows.join(",")}`
+);
 
 /* Task 8: The Wise Function */
-// TODO: Destructo needs to decode ancient directions to continue his quest. Help him by writing a function `revealPath` that decodes and prints the direction and distance to travel. The function takes an object with `direction` and `distance` as parameters.
+function revealPath({direction, distance}){
+	console.log(`Move ${distance} meters towards ${direction}.`);
+}
+
 
 /* Task 9: The Scroll of Defaults */
-// TODO: Destructo finds an ancient scroll with a potion recipe, but some ingredients are missing. Write a function `mixPotion` that uses defaults "Water" and "Fireflower" for `ingredient1` and `ingredient2` if they are not specified and print those mixings. The function takes an object with these optional properties.
-
+function mixPotion({ingredient1= 'Water', ingredient2='Fireflower' }= {})
+{
+	console.log(`Mixing ${ingredient1}, ${ingredient2}`);
+}
+//add examples to function mixPotion
+mixPotion({ingredient1:"dust"});
 /* Task 10: The Array Spell */
-// TODO: At the gates of an ancient library, Destructo must cast a spell with the first two ingredients from a list given to him by a wise owl. Create a function `castSpell` that uses array destructuring to access these ingredients from an array and print the spell casting.
+function castSpell([ingredient1, ingredient2]){
+	console.log(`Casting spell with ${ingredient1} and ${ingredient2}`);
+}
+castSpell(["Moonstone", "Lavender", "Bay Leaf"]);
 
 /* Task 11: The Nested Secret */
-const nestedSecret = {outer: {inner: "The Final Key"}};
-// TODO: Behind the final door lies a nested artifact containing the ultimate clue. Use nested destructuring to extract `The Final Key`. Print the unveiled secret.
+const nestedSecret = { outer: { inner: "The Final Key" } };
+const{outer: {inner: finalKey}} = nestedSecret;
+console.log(`Unveiled secret: ${finalKey}`);
+
+
 
 /* Task 12: The Swap of Fate */
 let stoneA = "Emerald";
 let stoneB = "Ruby";
+
+[stoneB, stoneA] = [stoneA, stoneB];
+console.log(`Stones swapped: A= ${stoneA}, B=${stoneB}`);
 // TODO: In the treasure chamber, two mystical stones control the treasure's safeguard. Use array destructuring to swap the values of `stoneA` and `stoneB`. Print the result of the swap.
