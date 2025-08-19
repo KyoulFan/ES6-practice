@@ -1,17 +1,17 @@
 const inventory = [];
 export function addItem(item) {
   //add corner case
-  if ((!item !== typeof item) !== "string") throw new Error("item name needed");
+  if (!item || typeof item !== "string") throw new Error("item name needed");
   inventory.push(item);
   console.log(`Added ${item}`);
 }
 
 export function removeItem(item) {
   let isRemoved = false;
-  for (let i = 0; i < items.length; i++) {
-    if (items[i] === item) {
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i] === item) {
       isRemoved = true;
-      items.splice(i, 1);
+      inventory.splice(i, 1);
       i--;
     }
   }
@@ -25,4 +25,7 @@ export function removeItem(item) {
 
 export const listItems = () => {
   console.log(`Listing all items:`);
+  inventory.forEach((item, idx) => {
+    console.log(`${idx + 1}: ${item}`);
+  });
 };
