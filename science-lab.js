@@ -37,3 +37,10 @@ const participantWithArrow = {
 
 /* Task 4: Using Computed Property Names */
 // TODO: Implement a function named `updateParticipantInfo` that takes a property name and value as arguments alongside an object and returns a new object with that property dynamically set.
+
+function updateParticipantInfo(obj, propName, value) {
+  return {
+    ...obj,
+    [propName]: value
+  };
+}
